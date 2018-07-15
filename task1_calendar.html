@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>calendar</title>
+<meta charset = "utf-8"/>
+
+</head>
+<body>
+	<center>
+		<p> Tape a number and the program will count which week day in 2018 it is, which month and which day in this month.</p>
+			<form style="margin-top:100px">
+				<input style="height:30px; width:400px; padding-left:10px;" placeholder="Type a number from 1 to 365" type="number" name="number" id="number" />
+				<input style="height:35px;" type="button" value="Find a day" id="button" />
+				<center><p id="weekDay"></p></center>
+				<center><p id="month"></p></center>
+				<center><p id="DayInMonth"></p></center>
+			</form>
+	</center>
+
+
+<script type = "text/javascript">
+
+
+
+function calculate() {
+
+// alert when there is no number, no is 0 or bigger than 365
+	var number = document.getElementById("number").value;
+
+	if (number == "" || number == 0 || number > 365) {
+	
+		window.alert("Please type a number from 1 to 365");
+		return;
+	};
+		
+	var weekDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+		
+	//day loop
+	var y= 0;
+	var x = 1;
+		while (x <= 365) {
+
+	// number comparising
+			if (x == number) {
+	
+	document.getElementById("weekDay").innerHTML = "This is " + weekDay[y] + ".";
+			};
+
+			// day calculation
+			if (y>5) { 
+					y=0;
+			} else {
+					y++;
+			};
+			x++;
+			}
+
+// month and day in month counting
+  if (number <=31) {
+  
+  DayInMonth = 31 - (31 - number);
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of January.";
+	
+	} else if (number <=59) {
+	DayInMonth = number - 31;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of February.";
+	
+	} else if (number <=90) {
+	DayInMonth = number - 59;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of March.";
+	
+	} else if (number <=120) {
+	DayInMonth = number - 90;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of April.";
+	
+	} else if (number <=151) {
+	DayInMonth = number - 120;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of May.";
+	
+	} else if (number <=181) {
+	DayInMonth = number - 151;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of June.";
+	
+	} else if (number <=212) {
+	DayInMonth = number - 181;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of July.";
+	
+	} else if (number <=243) {
+	DayInMonth = number - 212;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of August.";
+	
+	} else if (number <=273) {
+	DayInMonth = number - 243;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of September.";
+	
+	} else if (number <=304) {
+	DayInMonth = number - 273;
+	
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of October.";
+	
+	} else if (number <=334) {
+	DayInMonth = number - 304;
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of November.";
+	
+	} else if (number <=365) {
+	DayInMonth = number - 334;
+	document.getElementById("month").innerHTML = "This is " + DayInMonth + " of December.";
+	
+	}
+	
+	
+}
+	
+
+document.getElementById("button").onclick = function() {  
+	calculate();  
+	};
+
+
+
+</script> 
+
+</body>
+
+</html>
